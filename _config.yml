@@ -1,8 +1,8 @@
 # Site wide configuration
 
-title:            Site Title
+title:            Paul Biggins
 locale:           en_US
-url:              
+url:              #www.paulbiggins.com
 
 
 # Jekyll configuration
@@ -26,30 +26,30 @@ kramdown:
 
 # Site owner
 owner:
-  name: Your Name
+  name: Paul Biggins
   avatar: bio-photo.jpg
-  bio: "Describe your self."
-  email: 
+  bio: "I'm an Antenna Design Engineer on weekdays, a Dabler on weekends, and an Adventurer all the time."
+  email: paul@paulbiggins.com
   disqus-shortname: 
-  twitter: #username
+  twitter: pbiggins
   facebook: #username
   google:
-    plus: #username
-    analytics: 
+    plus: PaulBigginsMinus
+    analytics: #https://support.google.com/webmasters/answer/35179?hl=en
     verify: 
     ad-client: 
     ad-slot: 
   bing-verify: 
-  github: #username
+  github: paulbiggins
   stackoverflow: #http://stackoverflow.com/users/123456/username
-  linkedin: #username
+  linkedin: pbiggins
   xing: #username
   instagram: #username
   lastfm: #username
   tumblr: #username
   pinterest: #username
   foursquare: #username
-  steam: #username
+  steam: pasque_
   dribbble: #username
   youtube: #username
   soundcloud: #username
