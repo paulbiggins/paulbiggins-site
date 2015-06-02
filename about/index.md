@@ -1,25 +1,18 @@
 ---
 layout: page
-title: About the Theme
-tags: [about, Jekyll, theme, responsive]
-modified: 2014-08-08T20:53:07.573882-04:00
-comments: true
+title: About Paul Biggins
+tags: [about]
+modified: 2015-07-01 9:11
 image:
-  feature: sample-image-2.jpg
-  credit: WeGraphics
-  creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
+  feature: about_headerimage.jpg
+  credit: Jeff McGovern
+  creditlink: https://twitter.com/rectangleboy
 ---
 
-Minimal Mistakes is responsive Jekyll theme with large featured images and solid typography. As the name implies the styling is fairly minimal to make it easier for you to build on top of.
+#### I'm an antenna design engineer. I'm a dabler in thing's I'm bad at. I'm an avid adventurer. ####
 
-## Minimal Mistakes is all about:
+Before I could walk, my dad took me backpacking in the Sierra Nevada Mountains. I've been hiking and exploring the outdoors ever since then. So far I've logged hundreds of nights and countless miles in the wilderness. Biking has become a new intrest of mine as well. The frequency of hikes has decreased as life has become busier, but I still make time for it whenever I get the itch.
 
-* Responsive templates. Looking good on mobile, tablet, and desktop.
-* Gracefully degrading in older browsers. Compatible with Internet Explorer 8+ and all modern browsers. 
-* Minimal embellishments -- content first.
-* Optional large feature images for posts and pages.
-* Simple and clear permalink structure.
-* [Custom 404 page](http://mmistakes.github.io/minimal-mistakes/404.html) to get you started.
-* Support for Disqus Comments
+I make hobbies out of things I'm not good at. In my free time I enjoy programming, fixing things I've taken apart, and ... I also enjoy expanding my eclectic music tastes, fixing vintage audio equipment, and collecting vinyl.
 
-<a markdown="0" href="{{ site.url }}/theme-setup" class="btn">Install Minimal Mistakes Theme</a>
+I'm a recent graduate of Cal Poly, San Luis Obispo and currently employed at Nest Labs in Palo Alto. Working at Nest has been awesome. I get to work with my hands designing integrated antennas in unique form factors. It's fast paced and satisfying work where I collaborate with amazing people.
