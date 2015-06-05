@@ -47,7 +47,7 @@ owner:
   facebook: #username
   google:
     plus: PaulBigginsMinus
-    analytics: #https://support.google.com/webmasters/answer/35179?hl=en
+    analytics: UA-23372643-1 #https://support.google.com/webmasters/answer/35179?hl=en
     verify: 
     ad-client: 
     ad-slot: 
