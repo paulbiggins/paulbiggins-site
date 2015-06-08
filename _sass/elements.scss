@@ -45,6 +45,7 @@ svg:not(:root) {
 			@include grid(12,12);
 		}
 	}
+    margin-bottom: $indent-var;
 }
 
 /* 3 images of equal dimensions in a row */
@@ -59,6 +60,7 @@ svg:not(:root) {
 		figcaption {
 			@include grid(12,12);
 		}
+        margin-bottom: $indent-var;
 	}
 }
 
