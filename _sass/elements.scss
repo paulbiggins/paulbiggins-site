@@ -39,10 +39,13 @@ svg:not(:root) {
 	@include clearfix;
 	@media #{$micro} {
 		img {
-			@include grid(12,6);
+			@include grid(12,5);
+            @include prefix(12,0.1);
+            @include suffix(12,0.1);
 		}
 		figcaption {
 			@include grid(12,12);
+            @include prefix(12,0.1);
 		}
 	}
     margin-bottom: $indent-var;
@@ -56,9 +59,12 @@ svg:not(:root) {
 	@media #{$micro} {
 		img {
 			@include grid(12,4);
+            @include prefix(12,0.1);
+            @include suffix(12,0.1);
 		}
 		figcaption {
 			@include grid(12,12);
+            @include prefix(12,0.1);
 		}
         margin-bottom: $indent-var;
 	}
