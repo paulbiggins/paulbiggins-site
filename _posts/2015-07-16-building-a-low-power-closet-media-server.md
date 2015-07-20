@@ -76,7 +76,7 @@ I chose Arch Linux to power the server box, because it's pretty flexible and als
 $ hostnamectl set-hostname myhostname
 ```
 
-Edit the DHCP settings so that we use both IPv4 and IPv6:
+Edit the DHCP settings so that we use both IPv4 and IPv6. While you're at it, put the Google DNS for IPv4 and IPv6 and also the Level3 DNS as backup.
 
 ``` sh
 # /etc/systemd/network/MyDhcp.network
@@ -86,6 +86,11 @@ Name=en*
 
 [Network]
 DHCP=yes
+DNS=8.8.8.8
+DNS=8.8.4.4
+DNS=2001:4860:4860::8888
+DNS=2001:4860:4860::8844
+DNS=4.2.2.3
 ```
 
 Follow the guide for partitioning and file system config. Don't forget to set up [locale](https://wiki.archlinux.org/index.php/Beginners'_guide#Locale) and the [time zone](https://wiki.archlinux.org/index.php/Beginners'_guide#Time_zone). This is also a good time to install vim from the official repositories, because vi and nano suck. Don't forget to set up the bootloader.
