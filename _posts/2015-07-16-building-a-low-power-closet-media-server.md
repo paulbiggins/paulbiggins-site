@@ -76,9 +76,11 @@ I chose Arch Linux to power the server box, because it's pretty flexible and als
 $ hostnamectl set-hostname myhostname
 ```
 
-Edit `/etc/systemd/network/MyDhcp.network` so that we use both IPv4 and IPv6:
+Edit the DHCP settings so that we use both IPv4 and IPv6:
 
-``` console
+``` sh
+# /etc/systemd/network/MyDhcp.network
+
 [Match]
 Name=en*
 
@@ -110,9 +112,11 @@ $ sudo pacman -U pacaur*.pkg.tar.xz
 
 Finally Arch is mostly set up, and we can get on to ZFS. I chose to use ZFS because it was pretty well documented and stable. The internet seems to be very vocal about their opinions of ZFS. I'm only using it for a home server, so I didn't give much weight to most concerns. I chose to use raidz2, so that I had a little more padding for drive failures. The Arch Wiki has a [fantastic guide](https://wiki.archlinux.org/index.php/ZFS) to setting up a ZFS pool. I recommend adding drives to the pool with their disk ID instead of device labels or anything else. You'll thank me when you're trying to figure out which drive failed, or if you swap around SATA ports.
 
-I wanted to make automate drive maintenance, so I used systemd's timer unit to schedule a zpool scrub in the middle of the week. To do this I needed to create two files. The first one is the actual service unit, `/etc/systemd/system/zfsScrub.service`.
+I wanted to make automate drive maintenance, so I used systemd's timer unit to schedule a zpool scrub in the middle of the week. To do this I needed to create two files. The first one is the actual service unit.
 
 ``` sh
+# /etc/systemd/system/zfsScrub.service
+
 [Unit]
 Description=Scrub ZFS Pool
 Requires=zfs.target
@@ -124,9 +128,11 @@ ExecStartPre=-/usr/bin/zpool scrub -s sockdrawer
 ExecStart=/usr/bin/zpool scrub sockdrawer
 ```
 
-I also created the systemd timer unit, `/etc/systemd/system/zfsScrub.timer`.
+I also created the systemd timer unit.
 
 ``` sh
+# /etc/systemd/system/zfsScrub.timer
+
 [Unit]
 Description=Run ZFS scrub weekly
 
@@ -140,9 +146,11 @@ WantedBy=timers.target
 
 I also wanted to add S.M.A.R.T. monitoring support with [smartctl and smartd](https://wiki.archlinux.org/index.php/S.M.A.R.T.). Scheduling self tests in the middle of a weekday night was pretty easy. To get an email notification about possible S.M.A.R.T. errors, [setting up s-nail](http://dominicm.com/configure-email-notifications-on-arch-linux/) was required.
 
-Setting up file aggregators/parsing tools, just get them off AUR. The extra steps are mostly the same for SABnzbd, Sickbeard, CouchPotato, Mylar, and Headphones. As an example, I edited `/usr/lib/systemd/system/sabnzbd.service`.
+Setting up file aggregators/parsing tools, just get them off AUR. The extra steps are mostly the same for SABnzbd, Sickbeard, CouchPotato, Mylar, and Headphones. As an example, I edited the SABnzbd service file.
 
 ``` sh
+# /usr/lib/systemd/system/sabnzbd.service
+
 ...
 [Service]
 ExecStart=/opt/sabnzbd/SABnzbd.py -l0
@@ -160,9 +168,10 @@ chown -R root:root /opt/sabnzbd/
 Lastly start and enable the sabnzbd service using systemctl.
 
 To back up and sync files on cloud storage providers, I installed dropbox from AUR. When using a headless unit, there were only a [couple extra steps](http://dominicm.com/setup-dropbox-in-command-line-on-arch-linux/) to get it working. I also installed [drive-git](https://aur.archlinux.org/packages/drive-git/) from AUR so that I could push and pull Google Drive files on a schedule. To automate this for a weekly sync, I went back to my old friend systemd for a timer and service unit.  
-`/etc/systemd/system/driveUpdate.service`
 
 ``` sh
+# /etc/systemd/system/driveUpdate.service
+
 [Unit]
 Description=push updates to drive, then pull them
 
@@ -171,9 +180,9 @@ Type=oneshot
 ExecStart=/bin/bash -c "cd /mnt/cloudBackups/gdrive/; drive push -no-clobber -quiet; drive pull -quiet"
 ```
 
-`/etc/systemd/system/driveUpdate.timer`
-
 ``` sh
+# /etc/systemd/system/driveUpdate.timer
+
 [Unit]
 Description=Run drive updater weekly
 
